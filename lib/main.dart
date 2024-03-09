@@ -21,21 +21,22 @@ import 'Diya_timer.dart';
 import 'SlotBooking.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-void main() async{
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
-DatabaseReference userRef = FirebaseDatabase.instance.reference().child("users");
+
+DatabaseReference userRef =
+    FirebaseDatabase.instance.reference().child("users");
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Parked',
-
       theme: ThemeData(
         fontFamily: "Brand Bold",
         primarySwatch: Colors.blue,
@@ -43,17 +44,17 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: LoginScreen.idScreen,
       routes: {
-        RScreen.idScreen:(context)=>RScreen(),
-        LoginScreen.idScreen:(context)=>LoginScreen(),
-        MainScreen.idScreen:(context)=>MainScreen(),
-        TimerScreen.idScreen:(Context)=>TimerScreen(),
-        MyHomePage.idScreen:(Context)=>MyHomePage(title: 'MyHomePage',),
-        TimerScreenS.idScreen:(Context)=>TimerScreenS(),
-        MyButtons.idScreen:(Context)=>MyButtons()
+        RScreen.idScreen: (context) => RScreen(),
+        LoginScreen.idScreen: (context) => LoginScreen(),
+        MainScreen.idScreen: (context) => MainScreen(),
+        TimerScreen.idScreen: (Context) => TimerScreen(),
+        MyHomePage.idScreen: (Context) => MyHomePage(
+              title: 'MyHomePage',
+            ),
+        TimerScreenS.idScreen: (Context) => TimerScreenS(),
+        MyButtons.idScreen: (Context) => MyButtons()
       },
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
-
